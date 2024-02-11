@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import AddTodo from "@/components/shared/AddTodo";
+import Todo from "@/components/shared/Todo";
 
 const prisma = new PrismaClient();
 
@@ -24,18 +25,17 @@ async function getData() {
 }
 
 const Home = async () => {
-  const getDatas = await getData();
+  const getDatas: any = await getData();
   return (
     <div>
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center p-4">
-        Taxing Laughter: The Joke Tax Chronicles
-      </h1>
+      <h2 className="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-4xl text-center p-4">
+        TO DO APP
+      </h2>
+      <h3 className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-3xl text-center p-4">
+        NEXT.JS 14 SERVER ACTIONS
+      </h3>
       <AddTodo />
-      <div>
-        {getDatas.map((data, index) => {
-          return <h1 key={index}>{data.title}</h1>;
-        })}
-      </div>
+      <Todo todoData={getDatas} />
     </div>
   );
 };

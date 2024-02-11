@@ -18,14 +18,15 @@ const AddTodo = () => {
   const [inputData, setInputData] = useState<any>();
 
   return (
-    <div className="flex m-auto justify-center gap-5 item-center my-10   ">
+    <form className="flex justify-center gap-5" action={create} method="POST">
       <Input
         onChange={(e: any) => setInputData(e.target.value)}
         className="w-6/12 bg-white text-black "
         placeholder="Add your daily todo"
+        name="input"
       />
-      <Button onClick={() => create(inputData)}>Add</Button>
-    </div>
+      <Button>Add</Button>
+    </form>
   );
 };
 
